@@ -9,7 +9,7 @@ def board_num_index(ball: int, board: typing.List[typing.List[int]]) -> typing.O
 
 def part_a_b() -> typing.Tuple[int, int]:
     board_size = 5
-    lines = read_file('day4', line_filter_cb=lambda x: x)
+    lines = read_file('day4', line_filter_cb=bool)
     balls = list(map(int, lines[0].split(',')))
     boards = [[list(map(int, y.split())) for y in lines[(1+x):(1+board_size+x)]] for x in range(0, len(lines)-1, 5)]
 

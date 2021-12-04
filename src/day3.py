@@ -3,7 +3,7 @@ from lib.importer import read_file
 
 
 def part_a() -> int:
-    lines = read_file('day3', line_cb=lambda x: list(x))
+    lines = read_file('day3', line_cb=list)
     lines = [[l[i] for l in lines] for i in range(len(lines[0]))]
 
     gamma = ''.join('1' if sum([int(y) for y in x]) > len(x)/2 else '0' for x in lines)

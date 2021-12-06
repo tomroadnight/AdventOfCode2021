@@ -1,5 +1,7 @@
 import typing
+from collections import Counter
 from functools import reduce
+from operator import add
 from lib.importer import read_file
 
 
@@ -10,21 +12,13 @@ def part_a_b() -> typing.Tuple[int, int]:
     lines = read_file('day6', line_cb=lambda x: list(map(int, x.split(','))))[0]
     fish = {k: lines.count(k) for k in set(lines)}
 
-    def age_sprawn(fish: typing.Dict[int, int]) -> typing.Dict[int, int]:
-        next_day_fish = {}
-        for k, v in fish.items():
-            if k == 0:
-                next_day_fish[6] = v + next_day_fish.get(6, 0)
-                next_day_fish[8] = v
-            else:
-                next_day_fish[k-1] = v + next_day_fish.get(k-1, 0)
-        return next_day_fish
+    age_sprawner = lambda fish, _: reduce(add, [Counter({k-1: v for k, v in fish.items() if k}), Counter({8: fish.get(0, 0), 6: fish.get(0, 0)})])
 
-    up_to_day_a = dict(reduce(lambda acc, _: age_sprawn(acc), range(days_a), fish))
+    up_to_day_a = reduce(age_sprawner, range(days_a), fish)
 
-    up_to_day_b = dict(reduce(lambda acc, _: age_sprawn(acc), range(days_b - days_a), up_to_day_a))
+    up_to_day_b = reduce(age_sprawner, range(days_b - days_a), up_to_day_a)
 
-    return sum(list(up_to_day_a.values())), sum(list(up_to_day_b.values()))
+    return sum(up_to_day_a.values()), sum(up_to_day_b.values())
 
 
 if __name__ == '__main__':

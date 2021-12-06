@@ -10,9 +10,9 @@ def part_a_b() -> typing.Tuple[int, int]:
     days_b = 256
 
     lines = read_file('day6', line_cb=lambda x: list(map(int, x.split(','))))[0]
-    fish = {k: lines.count(k) for k in set(lines)}
+    fish = Counter(lines)
 
-    age_sprawner = lambda fish, _: reduce(add, [Counter({k-1: v for k, v in fish.items() if k}), Counter({8: fish.get(0, 0), 6: fish.get(0, 0)})])
+    age_sprawner = lambda fish, _: Counter({k-1: v for k, v in fish.items() if k}) + (Counter({8: fish.get(0, 0), 6: fish.get(0, 0)}) if fish.get(0) else Counter())
 
     up_to_day_a = reduce(age_sprawner, range(days_a), fish)
 

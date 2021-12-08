@@ -1,6 +1,7 @@
 from enum import IntEnum
 from lib.importer import read_file
 
+
 class Segment(IntEnum):
     TOP=1
     TOP_LEFT=2
@@ -9,6 +10,7 @@ class Segment(IntEnum):
     BOTTOM_LEFT=5
     BOTTOM_RIGHT=6
     BOTTOM=7
+
 
 def part_a() -> int:
     lines = read_file('day8', line_cb=lambda x: tuple(map(lambda y: y.split(), x.split(' | '))))
@@ -50,7 +52,6 @@ def part_b() -> int:
                     digit_map[0] = elem
                     digit_map[6] = len_6[1 - idx]
                     break
-
 
         intersections[Segment.MIDDLE] = digit_map[8] - digit_map[0]
         intersections[Segment.TOP_RIGHT] = digit_map[8] - digit_map[6]

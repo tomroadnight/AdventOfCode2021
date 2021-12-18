@@ -1,4 +1,4 @@
-import math, typing
+import typing
 from lib.importer import read_file
 
 def part_a_b() -> typing.Tuple[int, int]:

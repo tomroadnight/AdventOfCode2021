@@ -1,5 +1,7 @@
 from itertools import count
+
 from lib.importer import read_file
+
 
 def part_a() -> int:
     lines = read_file('day25')

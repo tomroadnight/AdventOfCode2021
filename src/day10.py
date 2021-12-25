@@ -1,7 +1,8 @@
-
 import typing
+
 from functools import reduce
 from statistics import median
+
 from lib.importer import read_file
 
 CLOSURE_POINTS= {
@@ -21,7 +22,6 @@ CHAR_RELATION = {
 
 def part_a_b() -> typing.Tuple[int, int]:
     lines = read_file('day10')
-
     corrupt, autocomplete = 0, list()
 
     for l in lines:

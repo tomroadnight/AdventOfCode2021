@@ -1,5 +1,7 @@
 import typing
+
 from statistics import median, pstdev
+
 from lib.importer import read_file
 
 

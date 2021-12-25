@@ -1,9 +1,11 @@
 import collections
 import typing
+
 from lib.importer import read_file
 
-# Bresnham Line Algorithm - (https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm)
+
 def bresenham_line_algorithm(x0: int, y0: int, x1: int, y1: int) -> typing.Set[typing.Tuple[int, int]]:
+    # Bresnham Line Algorithm - (https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm)
     line = set()
     dx =  abs(x1 - x0)
     dir_x = 1 if x0 < x1 else -1

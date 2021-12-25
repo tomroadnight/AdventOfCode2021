@@ -1,5 +1,6 @@
 from lib.importer import read_file
 
+
 def part_a_b(brd_scale: int) -> int:
     lines = read_file('day15', line_cb=lambda x: tuple(map(int, x)))
 

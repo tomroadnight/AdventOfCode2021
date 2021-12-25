@@ -1,5 +1,7 @@
 import typing
+
 from lib.importer import read_file
+
 
 def part_a_b() -> typing.Tuple[int, int]:
     (x_min, x_max), (y_min, y_max) = read_file('day17', line_cb=lambda x: map(lambda y: (int(x) for x in y.replace(',', '').replace('x=', '').replace('y=', '').split('..')), x.split(' ')[2:]))[0]

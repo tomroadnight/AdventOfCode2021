@@ -1,5 +1,6 @@
 from functools import reduce
 from math import prod
+
 from lib.importer import read_file
 
 
@@ -16,5 +17,4 @@ def part_b() -> int:
 
 
 if __name__ == '__main__':
-    print(part_a())
-    print(part_b())
+    print((part_a(), part_b()))

@@ -1,6 +1,8 @@
 import typing
+
 from collections import defaultdict
 from itertools import permutations
+
 from lib.importer import read_file
 
 

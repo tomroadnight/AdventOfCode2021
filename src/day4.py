@@ -1,5 +1,7 @@
 import typing
+
 from lib.importer import read_file
+
 
 def board_num_index(ball: int, board: typing.List[typing.List[int]]) -> typing.Optional[typing.Tuple[int, int]]:
     for row_num, row in enumerate(board):

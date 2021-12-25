@@ -1,5 +1,7 @@
 import typing
+
 from lib.importer import read_file
+
     
 def part_a_b() -> typing.Tuple[int, typing.Set[typing.Tuple[int, int]]]:
     filled = set(read_file('day13', line_cb=lambda x: tuple(map(int, x.split(','))), line_filter_cb=lambda x: bool(x) and x[0][0].isdigit()))

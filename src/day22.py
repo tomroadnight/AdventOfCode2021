@@ -1,6 +1,9 @@
 import typing
+
 from functools import lru_cache
+
 from lib.importer import read_file
+
 
 @lru_cache(maxsize=None)
 def intersect(_min: int, _max: int, __min: int, __max: int) -> typing.Tuple[int, int]:

@@ -1,6 +1,9 @@
 import typing
+
 from collections import Counter, defaultdict
+
 from lib.importer import read_file
+
     
 def part_a_b_brute_force() -> typing.Tuple[int, int]:
     # Brute force approach not sustainable for larger counts therefore an alternate approach was developed under part_a_b.

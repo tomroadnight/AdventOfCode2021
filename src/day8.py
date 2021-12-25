@@ -1,4 +1,5 @@
 from enum import IntEnum
+
 from lib.importer import read_file
 
 
@@ -17,9 +18,9 @@ def part_a() -> int:
     display = read_file('day8_display', line_filter_cb=bool)
     display_chars = {i : ''.join(set(filter(str.isalpha, ''.join(map(lambda x: x[(i%5)*7+(i%5):(i%5)*7+(i%5)+7], display[8*(i//5):8+8*(i//5)]))))) for i in range(10)}
     display_chars_unique_len_map = {len(v): k for k, v in display_chars.items() if k in (1, 4, 7, 8)}
-
     return sum([True for x in lines for y in x[1] if len(y) in display_chars_unique_len_map.keys()])
-    
+
+
 def part_b() -> int:
     lines = read_file('day8', line_cb=lambda x: tuple(map(lambda y: y.split(), x.split(' | '))))
 
@@ -69,4 +70,4 @@ def part_b() -> int:
 
 
 if __name__ == '__main__':
-    print(part_a(), part_b())
+    print((part_a(), part_b()))

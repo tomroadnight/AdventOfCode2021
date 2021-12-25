@@ -1,13 +1,14 @@
-
 import typing
+
 from itertools import count
+
 from lib.importer import read_file
-    
+
 
 def part_a_b() -> typing.Tuple[int, int]:
     lines = read_file('day11', line_cb=lambda x: list(map(int, x)))
     total_flashes = 0
-    grid = {(x, y): val for y in range(len(lines)) for x, val in enumerate(lines[y])}
+    grid = {(x, y): e for y, l in enumerate(lines) for x, e in enumerate(l)}
 
     for c in count(1):
         for elem in grid:
